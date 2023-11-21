@@ -1,0 +1,45 @@
+%lista%
+
+%2%
+pisz([]).
+pisz([H|T]):-
+    write(H),
+    write(' '),
+    pisz(T).
+
+%3%
+nalezy(E,[E|_]).
+nalezy(E,[_|Tail]):-
+    nalezy(E,Tail).
+
+%4%
+dlugosc([],0).
+dlugosc([_|T],N):-
+    dlugosc(T,N1),
+    N is N1+1.
+
+%5%
+laczenie([],Lista,Lista).
+laczenie([X|Y],L2,[X|Wynik]):-
+    laczenie(Y,L2,Wynik).
+
+%6%
+dodaj(ListaPocz,Element,[ListaPocz|Element]).
+
+%7%
+usun( _, [], []).
+usun( Element, [Element|Lista], Wynik) :-
+    usun( Element, Lista, Wynik).
+usun( Element, [H|Lista], [H|Wynik]) :-
+    Element \= H,
+    usun( Element, Lista, Wynik).
+
+%8%
+ostatni(X,[X]).
+ostatni(X,[_|Z]):-
+    ostatni(X,Z).
+
+%9%
+poczatek([], _).
+poczatek([X|T1], [X|T2]) :-
+poczatek(T1, T2).
